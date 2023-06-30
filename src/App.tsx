@@ -1,17 +1,41 @@
 import { useMemo, useRef } from "react";
-import * as three from "three";
+import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Instance, Instances, OrbitControls, Stats } from "@react-three/drei";
+import {
+  Environment,
+  Instance,
+  Instances,
+  OrbitControls,
+  Stats,
+} from "@react-three/drei";
+import { Gradient, LayerMaterial } from "lamina";
 
 import "./App.css";
 
 export function App() {
   return (
     <div id="canvas-container">
-      <Canvas style={{ width: "100vw", height: "100vh" }}>
+      <Canvas
+        camera={{ position: [0, 0, -5] }}
+        style={{ width: "100vw", height: "100vh" }}
+      >
         <Scene />
+        <Environment background resolution={64}>
+          <mesh scale={100}>
+            <sphereGeometry args={[1, 64, 64]} />
+            <LayerMaterial side={THREE.BackSide}>
+              <Gradient
+                colorA={new THREE.Color("hsl(315, 27%, 05%)")}
+                colorB={new THREE.Color("hsl(315, 27%, 27%)")}
+                axes="y"
+                start={-1}
+                end={1}
+              />
+            </LayerMaterial>
+          </mesh>
+        </Environment>
         <OrbitControls />
-        <Stats />
+        // <Stats />
       </Canvas>
     </div>
   );
@@ -42,7 +66,7 @@ const getCoords = ({ y, theta, radius, ang_vel }: PointData, t: number) => {
 };
 
 function Scene() {
-  const instanceRef = useRef<three.InstancedMesh>(null!);
+  const instanceRef = useRef(null!);
 
   const points: PointData[] = useMemo(
     () =>
@@ -90,7 +114,7 @@ function Scene() {
 }
 
 function Particle(pointData: PointData) {
-  const ref = useRef<three.InstancedMesh>();
+  const ref = useRef<THREE.InstancedMesh>();
 
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime();
