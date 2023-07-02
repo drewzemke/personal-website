@@ -1,24 +1,16 @@
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  Instance,
-  Instances,
-  OrbitControls,
-  Stats,
-} from "@react-three/drei";
+import { Environment, Instance, Instances } from "@react-three/drei";
 import { Gradient, LayerMaterial } from "lamina";
-
-import "./App.css";
 
 export function App() {
   return (
-    <div id="canvas-container">
-      <Canvas
-        camera={{ position: [0, 0, -5] }}
-        style={{ width: "100vw", height: "100vh" }}
-      >
+    <div className="container">
+      <div className="overlay blur">
+        <h1>Hi, I'm Drew!</h1>
+      </div>
+      <Canvas className="canvas" camera={{ position: [0, 0, -5] }}>
         <Scene />
         <Environment background resolution={64}>
           <mesh scale={100}>
@@ -34,8 +26,6 @@ export function App() {
             </LayerMaterial>
           </mesh>
         </Environment>
-        <OrbitControls />
-        // <Stats />
       </Canvas>
     </div>
   );
@@ -93,10 +83,6 @@ function Scene() {
         ),
     []
   );
-
-  // useFrame(({ clock }) => {
-  //   instanceRef.current.children[0].position.setZ(clock.getElapsedTime());
-  // });
 
   return (
     <>
