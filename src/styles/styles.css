@@ -41,8 +41,15 @@ h1 {
 }
 
 .content {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid hsl(315, 20%, 40%);
+
   display: flex;
   flex-direction: column;
+  width: fit-content;
+
+  background-color: rgba(1.0, 0.1, 0.1, 0.1);
 
   text-align: center;
 }
@@ -60,6 +67,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   transition: 0.2s;
   z-index: 10;
