@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { Gradient, LayerMaterial } from 'lamina';
 import { Points } from './Points';
 
@@ -8,6 +8,14 @@ export function ThreeBackground() {
   return (
     <Canvas className="canvas" camera={{ position: [0, 0, -5] }}>
       <Points />
+      <OrbitControls
+        enableDamping
+        enablePan={false}
+        enableZoom={false}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
+        rotateSpeed={0.3}
+      />
       <Environment background resolution={64}>
         <mesh scale={100}>
           <sphereGeometry args={[1, 64, 64]} />
