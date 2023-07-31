@@ -113,7 +113,12 @@ li {
   text-decoration: none;
 }
 
-.social-links a:hover {
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
   color: var(--accent-color);
   transition: 0.2s;
 }
