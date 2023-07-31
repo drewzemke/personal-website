@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 
 export function App() {
   return (
-    <div className="container">
+    <div className="w-full h-screen ease-in-out duration-200 text-zinc-200">
       <Routes>
         <Route path="/shaders" element={<ShaderPage />} />
         <Route path="/" element={<HomePage />} />

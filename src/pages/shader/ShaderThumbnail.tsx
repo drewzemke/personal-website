@@ -11,7 +11,7 @@ type ShaderThumbnailProps = {
 
 export function ShaderThumbnail(props: ShaderThumbnailProps) {
   return (
-    <li className="shader-thumbnail">
+    <li className="border border-pink-300/50 rounded-md overflow-hidden flex">
       <button type="button">
         <Canvas
           style={{ width: `${props.width}px`, height: `${props.height}px` }}
