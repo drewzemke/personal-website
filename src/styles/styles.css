@@ -54,7 +54,7 @@ li {
   height: 100vh;
 }
 
-.canvas {
+.bg-canvas {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -121,4 +121,19 @@ a {
 a:hover {
   color: var(--accent-color);
   transition: 0.2s;
+}
+
+.shader-thumbnail {
+  padding: 0;
+  border: 1px solid hsl(315, 20%, 40%);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.shader-thumb-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+  justify-content: center;
 }

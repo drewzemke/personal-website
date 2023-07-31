@@ -28,7 +28,7 @@ export function HomePage() {
           </ul>
         </div>
         <p>
-          Or go <Link to="shaders">here</Link> to checkout some shaders!
+          Or go <Link to="shaders">here</Link> to check out some shaders!
         </p>
       </main>
     </div>
