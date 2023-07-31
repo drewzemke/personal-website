@@ -4,13 +4,13 @@ import { ShaderMaterial, Vector2 } from 'three';
 
 import vertexShader from './shaders/vert.glsl';
 
-type ShaderViewProps = {
+type ShaderRenderPlaneProps = {
   fragmentShader: string;
   animate: boolean;
   zoom?: number;
 };
 
-export function ShaderView(props: ShaderViewProps) {
+export function ShaderRenderPlane(props: ShaderRenderPlaneProps) {
   const zoom = props.zoom ?? 1;
   const material = useRef<ShaderMaterial>(null!);
 

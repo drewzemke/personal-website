@@ -1,22 +1,44 @@
 import { Stats } from '@react-three/drei';
+import { useState } from 'react';
 
-import { shaders } from './shader-list';
+import { ShaderInfo, shaders } from './shader-list';
 import { ShaderThumbnail } from './ShaderThumbnail';
 import { Card } from '../../components/Card';
+import { ShaderPreview } from './ShaderPreview';
+import { Overlay } from '../../components/Overlay';
 
 export function ShaderPage() {
+  const [selectedShader, setSelectedShader] = useState<ShaderInfo | null>(null);
+
   return (
-    <Card title="Shader Art">
-      <p>
-        I love making animations with GLSL shaders. It's all geometry-y and calculus-y and artsy!
-        Here are some of my creations: click to view a larger version.
-      </p>
-      <ul className="flex flex-wrap gap-4 justify-center">
-        {shaders.map((shader) => (
-          <ShaderThumbnail shader={shader} width={100} height={100} />
-        ))}
-      </ul>
+    <>
+      <Overlay>
+        <Card title="Shader Art">
+          <p>
+            I really like playing round with animations in GLSL shaders. It's all geometry-y and
+            calculus-y and artsy!
+          </p>
+          <p>
+            Here are some of my creations; click to view a larger version. I'll add more as I come
+            up with them!
+          </p>
+          <ul className="flex flex-wrap gap-4 justify-center">
+            {shaders.map((shader, index) => (
+              <ShaderThumbnail
+                key={shader.name}
+                shader={shader}
+                width={100}
+                height={100}
+                onClick={() => setSelectedShader(shaders[index])}
+              />
+            ))}
+          </ul>
+        </Card>
+        {selectedShader && (
+          <ShaderPreview shader={selectedShader} onClose={() => setSelectedShader(null)} />
+        )}
+      </Overlay>
       {import.meta.env.DEV && <Stats />}
-    </Card>
+    </>
   );
 }
