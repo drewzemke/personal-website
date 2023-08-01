@@ -84,7 +84,7 @@ void main() {
     // DEBUG
     // compute displacement field val and show it as bg
     float dispFieldVal = fieldVal(pos);
-    color = color * vec3(dispFieldVal);
+    color = color * vec3(pow(dispFieldVal, 0.5));
 
     // compute position displacement
     vec2 disp = displace(pos);
