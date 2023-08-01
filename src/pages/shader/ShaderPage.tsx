@@ -22,7 +22,7 @@ export function ShaderPage() {
             Here are some of my creations! (Click one of the thumbnails to view a larger version.)
             I'll add more as I make them!
           </p>
-          <ul className="flex flex-wrap gap-4 justify-center">
+          <ul className="py-2 flex flex-wrap gap-4 justify-center">
             {shaders.map((shader, index) => (
               <ShaderThumbnail
                 key={shader.name}
@@ -34,9 +34,7 @@ export function ShaderPage() {
             ))}
           </ul>
         </Card>
-        {selectedShader && (
-          <ShaderPreview shader={selectedShader} onClose={() => setSelectedShader(null)} />
-        )}
+        <ShaderPreview shader={selectedShader} onClose={() => setSelectedShader(null)} />
       </Overlay>
       {import.meta.env.DEV && <Stats />}
     </>
