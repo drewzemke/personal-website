@@ -12,7 +12,7 @@ export function HomePage() {
           I do web development professionally but my true interests lie in mathematics and computer
           graphics.
         </p>
-        <p>Check out the links below to learn more about me.</p>
+        <p>You can learn more about me here:</p>
         <div className="my-2 flex justify-center">
           <ul className="flex gap-4">
             <li>
@@ -36,11 +36,14 @@ export function HomePage() {
           </ul>
         </div>
         <p>
-          Or go{' '}
-          <Link to="shaders" className="hover:text-yellow-100 ease-linear duration-200">
-            here
+          Or{' '}
+          <Link
+            to="shaders"
+            className="hover:text-yellow-100 font-bold underline ease-linear duration-200"
+          >
+            check out
           </Link>{' '}
-          to check out my shader art collection!
+          my shader art collection!
         </p>
       </Card>
     </Overlay>

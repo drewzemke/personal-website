@@ -15,12 +15,12 @@ export function ShaderPage() {
       <Overlay>
         <Card title="Shader Art" homeButton>
           <p>
-            I really like playing round with animations in GLSL shaders. It's all geometry-y and
-            calculus-y and artsy!
+            I spend a weird amount of my leisure time playing round with GLSL shaders. It's a
+            combination of math and art that really appeals to me.
           </p>
           <p>
-            Here are some of my creations; click to view a larger version. I'll add more as I come
-            up with them!
+            Here are some of my creations! (Click one of the thumbnails to view a larger version.)
+            I'll add more as I make them!
           </p>
           <ul className="flex flex-wrap gap-4 justify-center">
             {shaders.map((shader, index) => (
