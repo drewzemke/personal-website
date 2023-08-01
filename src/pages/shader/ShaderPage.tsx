@@ -13,7 +13,7 @@ export function ShaderPage() {
   return (
     <>
       <Overlay>
-        <Card title="Shader Art">
+        <Card title="Shader Art" homeButton>
           <p>
             I really like playing round with animations in GLSL shaders. It's all geometry-y and
             calculus-y and artsy!
