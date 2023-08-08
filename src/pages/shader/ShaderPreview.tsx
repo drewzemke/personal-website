@@ -1,11 +1,12 @@
-import { Vector2 } from 'three';
 import { Canvas, useThree } from '@react-three/fiber';
+import clsx from 'clsx';
 import { useMemo } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import { Vector2 } from 'three';
 
 import { ShaderInfo } from './shader-list';
-import { ShaderRenderPlane } from './ShaderRenderPlane';
-import { FaTimes } from 'react-icons/fa';
-import clsx from 'clsx';
+import { ShaderPlaneSimple } from './ShaderPlaneSimple';
+import { ShaderPlanePipeline } from './ShaderPlanePipeline';
 
 type ShaderPreviewProps = {
   shader: ShaderInfo | null;
@@ -38,7 +39,12 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
         </button>
       </div>
       <Canvas style={{ background: 'black' }} orthographic>
-        {shader && <ShaderRenderPlane fragmentShader={shader.fragmentShader} animate />}
+        {shader &&
+          (shader.fragmentShader.type === 'simple' ? (
+            <ShaderPlaneSimple shader={shader.fragmentShader} animate />
+          ) : (
+            <ShaderPlanePipeline shader={shader.fragmentShader} animate />
+          ))}
         <CameraZoomer />
       </Canvas>
       <div className="p-5 pt-3 text-sm w-full">{shader?.description}</div>

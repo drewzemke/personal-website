@@ -1,10 +1,11 @@
 import { Canvas } from '@react-three/fiber';
 
 import { ShaderInfo } from './shader-list';
-import { ShaderRenderPlane } from './ShaderRenderPlane';
+import { ShaderPlaneSimple } from './ShaderPlaneSimple';
+import { ShaderPlanePipeline } from './ShaderPlanePipeline';
 
 type ShaderThumbnailProps = {
-  shader: ShaderInfo;
+  shaderInfo: ShaderInfo;
   width: number;
   height: number;
   onClick: () => void;
@@ -21,11 +22,19 @@ export function ShaderThumbnail(props: ShaderThumbnailProps) {
             zoom: Math.max(props.width, props.height),
           }}
         >
-          <ShaderRenderPlane
-            fragmentShader={props.shader.fragmentShader}
-            animate
-            zoom={props.shader.thumbnailZoom}
-          />
+          {props.shaderInfo.fragmentShader.type === 'simple' ? (
+            <ShaderPlaneSimple
+              shader={props.shaderInfo.fragmentShader}
+              animate
+              zoom={props.shaderInfo.thumbnailZoom}
+            />
+          ) : (
+            <ShaderPlanePipeline
+              shader={props.shaderInfo.fragmentShader}
+              animate
+              zoom={props.shaderInfo.thumbnailZoom}
+            />
+          )}
         </Canvas>
       </button>
     </li>

@@ -26,7 +26,7 @@ export function ShaderPage() {
             {shaders.map((shader, index) => (
               <ShaderThumbnail
                 key={shader.name}
-                shader={shader}
+                shaderInfo={shader}
                 width={100}
                 height={100}
                 onClick={() => setSelectedShader(shaders[index])}
