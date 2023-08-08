@@ -17,7 +17,7 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
   return (
     <div
       className={clsx(
-        'absolute z-20 bg-zinc-900 w-[90%] max-w-3xl aspect-[3/5] md:aspect-[4/3]',
+        'absolute z-20 bg-zinc-900 w-[90%] max-w-3xl aspect-[0.9] md:aspect-[4/3]',
         'border rounded-3xl flex flex-col items-center justify-center overflow-hidden pointer-events-auto',
         shader ? '' : 'hidden'
       )}

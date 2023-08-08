@@ -28,13 +28,12 @@ export type ShaderInfo = {
 
 export const shaders: ShaderInfo[] = [
   {
-    // FIXME: better name
-    name: 'Mandala',
-    fragmentShader: { type: 'simple', shader: fragTrippyCircles },
-    thumbnailZoom: 3,
-    date: new Date('July 29, 2023'),
-    description: `I stumbled upon this trippy circle business while I was trying to 
-        make something complete different. It's pretty fun to watch so I decided to keep it.`,
+    name: 'Smoke',
+    fragmentShader: { type: 'pipeline', pre: smokePre, loop: smokeLoop, post: smokePost },
+    thumbnailZoom: 2,
+    date: new Date('August 5, 2023'),
+    description: `I recently learned how to feed the output of a shader back into itself! 
+      It feels like the possibilities of what I can do with that technique are endless.`,
   },
   {
     name: 'Perlin Refraction',
@@ -45,13 +44,12 @@ export const shaders: ShaderInfo[] = [
       gradient of a perlin noise function. And... it kinda worked? It didn't not work!`,
   },
   {
-    name: 'Smoke',
-    fragmentShader: { type: 'pipeline', pre: smokePre, loop: smokeLoop, post: smokePost },
-    thumbnailZoom: 2,
-    date: new Date('August 5, 2023'),
-    description: `I learned how render targets and FBOs (fancy graphics things) work recently. It turns
-      out that you can feed the output of a shader back into itself! It feels like the possibilities
-      of what I can do with that technique are endless. This smoke simulation is the first thing I came up
-      with, but there will certainly be more!`,
+    // FIXME: better name
+    name: 'Mandala',
+    fragmentShader: { type: 'simple', shader: fragTrippyCircles },
+    thumbnailZoom: 3,
+    date: new Date('July 29, 2023'),
+    description: `I stumbled upon this trippy circle business while I was trying to 
+        make something complete different. It's pretty fun to watch so I decided to keep it.`,
   },
 ];
