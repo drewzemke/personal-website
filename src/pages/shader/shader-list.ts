@@ -49,6 +49,9 @@ export const shaders: ShaderInfo[] = [
     fragmentShader: { type: 'pipeline', pre: smokePre, loop: smokeLoop, post: smokePost },
     thumbnailZoom: 2,
     date: new Date('August 5, 2023'),
-    description: `THIS NEEDS A DESCIPTION!`,
+    description: `I learned how render targets and FBOs (fancy graphics things) work recently. It turns
+      out that you can feed the output of a shader back into itself! It feels like the possibilities
+      of what I can do with that technique are endless. This smoke simulation is the first thing I came up
+      with, but there will certainly be more!`,
   },
 ];
