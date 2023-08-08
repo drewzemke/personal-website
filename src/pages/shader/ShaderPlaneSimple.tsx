@@ -26,13 +26,8 @@ export function ShaderPlaneSimple(props: ShaderPlaneSimpleProps) {
   // const {size} = useThree();
   //
   // get the resolution of the canvas that this being renderd in
-  const three = useThree();
-  const res = useMemo(() => {
-    const tempRes = new Vector2(0, 0);
-    three.gl.getSize(tempRes);
-    tempRes.multiplyScalar(zoom);
-    return tempRes;
-  }, []);
+  const { size } = useThree();
+  const res = useMemo(() => new Vector2(zoom * size.width, zoom * size.height), [size]);
 
   const maxRes = Math.max(res.x, res.y);
 
