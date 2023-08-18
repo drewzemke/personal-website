@@ -17,12 +17,12 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
   return (
     <div
       className={clsx(
-        'absolute z-20 bg-zinc-900 w-[90%] max-w-3xl aspect-[0.9] md:aspect-[4/3]',
-        'border rounded-3xl flex flex-col items-center justify-center overflow-hidden pointer-events-auto',
+        'absolute z-20 aspect-[0.9] w-[90%] max-w-3xl bg-zinc-900 md:aspect-[4/3]',
+        'pointer-events-auto flex flex-col items-center justify-center overflow-hidden rounded-3xl border',
         shader ? '' : 'hidden'
       )}
     >
-      <div className="py-3 px-5 w-full flex justify-between">
+      <div className="flex w-full justify-between px-5 py-3">
         <div className="flex flex-col">
           <span>"{shader?.name}"</span>
           <span className="ml-2 text-sm text-zinc-400">
@@ -30,7 +30,7 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
           </span>
         </div>
         <button
-          className="hover:text-yellow-100 ease-linear duration-200 "
+          className="duration-200 ease-linear hover:text-yellow-100 "
           type="button"
           aria-label="close shader preview"
           onClick={props.onClose}
@@ -47,7 +47,7 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
           ))}
         <CameraZoomer />
       </Canvas>
-      <div className="p-5 pt-3 text-sm w-full">{shader?.description}</div>
+      <div className="w-full p-5 pt-3 text-sm">{shader?.description}</div>
     </div>
   );
 }
@@ -60,7 +60,7 @@ function CameraZoomer() {
     const tempRes = new Vector2(0, 0);
     three.gl.getSize(tempRes);
     return tempRes;
-  }, []);
+  }, [three.gl]);
 
   // update the camera
   three.camera.zoom = Math.max(res.x, res.y);

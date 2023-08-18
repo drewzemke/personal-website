@@ -9,14 +9,14 @@ type CardProps = {
 
 export function Card({ title, homeButton, children }: PropsWithChildren<CardProps>) {
   return (
-    <main className="max-w-lg py-5 px-6 bg-black/10 flex flex-col gap-4 text-center rounded-2xl border border-pink-300/50 backdrop-blur pointer-events-auto">
-      <div className="flex items-center justify-center relative">
+    <main className="pointer-events-auto flex max-w-lg flex-col gap-4 rounded-2xl border border-pink-300/50 bg-black/10 px-6 py-5 text-center backdrop-blur">
+      <div className="relative flex items-center justify-center">
         {homeButton && (
-          <Link to=".." className="hover:text-yellow-100 ease-linear duration-200 absolute right-0">
+          <Link to=".." className="absolute right-0 duration-200 ease-linear hover:text-yellow-100">
             <FaHome className="text-2xl" />
           </Link>
         )}
-        <h1 className="text-3xl font-bold self-center">{title}</h1>
+        <h1 className="self-center text-3xl font-bold">{title}</h1>
       </div>
       {children}
     </main>

@@ -17,7 +17,7 @@ export function HomePage() {
           <ul className="flex gap-4">
             <li>
               <a
-                className="px-2 flex items-center gap-2 font-bold hover:text-yellow-100 ease-linear duration-200"
+                className="flex items-center gap-2 px-2 font-bold duration-200 ease-linear hover:text-yellow-100"
                 href="https://www.linkedin.com/in/drewzemke/"
               >
                 <FaLinkedin className="text-3xl" />
@@ -26,7 +26,7 @@ export function HomePage() {
             </li>
             <li>
               <a
-                className="px-2 flex items-center gap-2 font-bold hover:text-yellow-100 ease-linear duration-200"
+                className="flex items-center gap-2 px-2 font-bold duration-200 ease-linear hover:text-yellow-100"
                 href="https://github.com/drewzemke"
               >
                 <FaGithubSquare className="text-3xl" />
@@ -39,7 +39,7 @@ export function HomePage() {
           Or{' '}
           <Link
             to="shaders"
-            className="hover:text-yellow-100 font-bold underline ease-linear duration-200"
+            className="font-bold underline duration-200 ease-linear hover:text-yellow-100"
           >
             check out
           </Link>{' '}

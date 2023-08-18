@@ -13,7 +13,7 @@ type ShaderThumbnailProps = {
 
 export function ShaderThumbnail(props: ShaderThumbnailProps) {
   return (
-    <li className="border border-pink-300/50 hover:border-pink-300 rounded-md overflow-hidden flex">
+    <li className="flex overflow-hidden rounded-md border border-pink-300/50 hover:border-pink-300">
       <button type="button" onClick={props.onClick}>
         <Canvas
           style={{ width: `${props.width}px`, height: `${props.height}px` }}

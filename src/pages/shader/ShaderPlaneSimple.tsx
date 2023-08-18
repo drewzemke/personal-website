@@ -13,10 +13,10 @@ type ShaderPlaneSimpleProps = {
 
 export function ShaderPlaneSimple(props: ShaderPlaneSimpleProps) {
   const zoom = props.zoom ?? 1;
-  const material = useRef<ShaderMaterial>(null!);
+  const material = useRef<ShaderMaterial>(null);
 
   useFrame((_, delta) => {
-    if (!props.animate) {
+    if (!props.animate || !material.current) {
       return;
     }
     material.current.uniforms.uTime.value += delta;
@@ -27,7 +27,7 @@ export function ShaderPlaneSimple(props: ShaderPlaneSimpleProps) {
   //
   // get the resolution of the canvas that this being renderd in
   const { size } = useThree();
-  const res = useMemo(() => new Vector2(zoom * size.width, zoom * size.height), [size]);
+  const res = useMemo(() => new Vector2(zoom * size.width, zoom * size.height), [size, zoom]);
 
   const maxRes = Math.max(res.x, res.y);
 
@@ -36,7 +36,7 @@ export function ShaderPlaneSimple(props: ShaderPlaneSimpleProps) {
       uTime: { value: 0 },
       uRes: { value: res },
     }),
-    []
+    [res]
   );
 
   return (

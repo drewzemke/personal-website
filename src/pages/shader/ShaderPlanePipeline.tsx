@@ -18,7 +18,7 @@ export function ShaderPlanePipeline(props: ShaderPlanePipelineProps) {
   const { size } = useThree();
   const maxDim = Math.max(size.width, size.height);
 
-  const mesh = useRef<Mesh<BufferGeometry, ShaderMaterial>>(null!);
+  const mesh = useRef<Mesh<BufferGeometry, ShaderMaterial>>(null);
 
   const uniforms1 = useMemo(() => ({ uTime: { value: 0 } }), []);
 
@@ -71,6 +71,10 @@ export function ShaderPlanePipeline(props: ShaderPlanePipelineProps) {
   const tempRt = useRef<WebGLRenderTarget<Texture>>();
 
   useFrame(({ camera, clock, gl, scene }) => {
+    if (!mesh.current) {
+      return;
+    }
+
     gl.setRenderTarget(renderTarget1);
     mesh.current.material = mat1;
     mesh.current.material.uniforms.uTime.value = clock.elapsedTime;

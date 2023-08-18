@@ -6,7 +6,7 @@ import { ThreeBackground } from './components/three-background/ThreeBackground';
 
 export function App() {
   return (
-    <div className="w-full h-screen ease-in-out duration-200 text-zinc-200">
+    <div className="h-screen w-full text-zinc-200 duration-200 ease-in-out">
       <Routes>
         <Route path="/shaders" element={<ShaderPage />} />
         <Route path="/" element={<HomePage />} />

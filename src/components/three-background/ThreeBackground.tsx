@@ -6,7 +6,7 @@ import { Points } from './Points';
 
 export function ThreeBackground() {
   return (
-    <Canvas className="w-full h-full absolute" camera={{ position: [0, 0, -5] }}>
+    <Canvas className="absolute h-full w-full" camera={{ position: [0, 0, -5] }}>
       <Points />
       <OrbitControls
         enableDamping
