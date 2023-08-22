@@ -25,7 +25,7 @@ export function ShaderPreview({ shader, ...props }: ShaderPreviewProps) {
       <div className="flex w-full justify-between px-5 py-3">
         <div className="flex flex-col">
           <span>"{shader?.name}"</span>
-          <span className="ml-2 text-sm text-zinc-400">
+          <span className="ml-1 text-sm text-zinc-400">
             {shader?.date.toLocaleDateString('en-us', { month: 'long', year: 'numeric' })}
           </span>
         </div>

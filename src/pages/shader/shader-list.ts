@@ -1,4 +1,5 @@
 import fragTrippyCircles from './shaders/frag-trippy-circles.glsl';
+import fragScales from './shaders/frag-scales.glsl';
 import fragMovingBlobs from './shaders/frag-moving-blobs.glsl';
 import smokePre from './shaders/frag-smoke-pre.glsl';
 import smokeLoop from './shaders/frag-smoke-loop.glsl';
@@ -27,6 +28,14 @@ export type ShaderInfo = {
 };
 
 export const shaders: ShaderInfo[] = [
+  {
+    name: 'Diamonds',
+    fragmentShader: { type: 'simple', shader: fragScales },
+    thumbnailZoom: 5,
+    date: new Date('August 21, 2023'),
+    description: `I had a design like this in my head for a while before I made this.
+    I think it was subconsciously inspired by a car decal from Rocket League.`,
+  },
   {
     name: 'Smoke',
     fragmentShader: { type: 'pipeline', pre: smokePre, loop: smokeLoop, post: smokePost },
