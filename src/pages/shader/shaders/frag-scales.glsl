@@ -103,7 +103,7 @@ float pattern( vec2 pos, float diamondScale, float speed, float offset, float sp
 }
 
 void main() {
-    vec3 color = vec3(0.0, 0.0001, 0.0002);
+    vec3 color = vec3(0.0, 0.00001, 0.00002);
 
     // palette
     vec3 color1 = vec3(0.03, 0.08, 0.10);
@@ -125,7 +125,7 @@ void main() {
     color = mix(color, p3 * color3, p3);
 
     // adjust colors
-    color = pow( color, vec3(0.5) );
+    color = 3.2 * pow( color, vec3(0.4) );
 
     gl_FragColor = vec4(color, 1.0);
 }
