@@ -59,6 +59,6 @@ export const shaders: ShaderInfo[] = [
     thumbnailZoom: 3,
     date: new Date('July 29, 2023'),
     description: `I stumbled upon this trippy circle business while I was trying to 
-        make something complete different. It's pretty fun to watch so I decided to keep it.`,
+        make something completely different. It's pretty fun to watch so I decided to keep it.`,
   },
 ];
