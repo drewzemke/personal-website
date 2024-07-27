@@ -1,10 +1,10 @@
+import { useFBO } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
-import { BufferGeometry, Mesh, ShaderMaterial, Texture, WebGLRenderTarget } from 'three';
+import { BufferGeometry, Mesh, ShaderMaterial, WebGLRenderTarget } from 'three';
 
-import vertexShader from './shaders/vert.glsl';
 import { FragmentShaderPipeline } from './shader-list';
-import { useFBO } from '@react-three/drei';
+import vertexShader from './shaders/vert.glsl';
 
 type ShaderPlanePipelineProps = {
   shader: FragmentShaderPipeline;
@@ -68,7 +68,7 @@ export function ShaderPlanePipeline(props: ShaderPlanePipelineProps) {
 
   const currentRt = useRef(renderTarget2a);
   const nextRt = useRef(renderTarget2b);
-  const tempRt = useRef<WebGLRenderTarget<Texture>>();
+  const tempRt = useRef<WebGLRenderTarget>();
 
   useFrame(({ camera, clock, gl, scene }) => {
     if (!mesh.current) {
